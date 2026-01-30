@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 const users = [
@@ -22,12 +22,18 @@ export default function UserScreen() {
   if (!user) {
     return (
       <View style={styles.container}>
+        <Stack.Screen options={{ title: "User not found" }} />
+
         <Text>User not found</Text>
       </View>
     );
   }
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{ title: user.fullname, animation: "simple_push" }}
+      />
+
       <Text style={styles.text}>{user.fullname}</Text>
       <Text style={styles.text}>{user.company}</Text>
     </View>
