@@ -26,6 +26,30 @@ export default function IndexScreen() {
       >
         <Text>Greet Jane on SecondScreen</Text>
       </Pressable>
+
+      <Link style={styles.button} href="/users/1">
+        <Text>Show User 1</Text>
+      </Link>
+
+      <Link style={styles.button} href="/users/2">
+        <Text>Show User 2</Text>
+      </Link>
+
+      <Pressable
+        style={styles.button}
+        onPress={() =>
+          router.push({
+            pathname: "/users/[id]",
+            params: { id: "3" },
+          })
+        }
+      >
+        <Text>Show User 3 via router</Text>
+      </Pressable>
+
+      <Link style={styles.button} href="/users/11">
+        <Text>Show User 11</Text>
+      </Link>
     </View>
   );
 }
